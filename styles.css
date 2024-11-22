@@ -3,120 +3,135 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1e293b, #4b5563);
+    background: linear-gradient(135deg, #1e293b, #334155); /* Subtle gradient */
     color: #ffffff;
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
-
-
-h1, h2, h3 {
-    margin-bottom: 1rem;
-    color: #f59e0b;
+/* Navigation Bar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff; /* Clean white background */
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
 }
-.container {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1200px;
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    position: relative;
 }
-a {
-    color: #22d3ee;
+
+.nav-item {
+    position: relative;
+    text-align: center;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+    color: #374151; /* Neutral gray */
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-/* Hero Section */
+.nav-link i {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.nav-link:hover {
+    color: #1d4ed8; /* Accent blue on hover */
+}
+
+.nav-item.active .nav-link {
+    color: #1d4ed8; /* Highlight active link */
+}
+
+/* Indicator Animation */
+.indicator {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 4px;
+    background: #1d4ed8;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+/* Section Styles */
+section {
+    padding: 5rem 1rem;
+    text-align: center;
+}
+
 .hero {
     text-align: center;
     padding: 5rem 1rem;
     background: url('https://source.unsplash.com/1600x900/?technology,code') no-repeat center center/cover;
     color: #ffffff;
 }
+
 .hero h1 span {
-    color: #22d3ee;
+    color: #facc15; /* Bright yellow */
 }
+
 .hero img {
-    width: 300px;
+    width: 250px;
     margin-top: 2rem;
 }
+
+h1, h2, h3 {
+    color: #facc15;
+    margin-bottom: 1rem;
+}
+
+/* Button Styles */
 .btn {
-    background: #f59e0b;
+    background: #3b82f6; /* Primary blue */
     padding: 0.8rem 1.5rem;
-    color: #1e293b;
+    color: #ffffff;
     font-weight: 600;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-.btn:hover {
-    background: #d97706;
+    transition: background 0.3s ease;
 }
 
-/* Sections */
-section {
-    padding: 3rem 1rem;
-    text-align: center;
+.btn:hover {
+    background: #2563eb; /* Darker blue */
 }
+
+/* Card Styles */
 .experience-card, .project-card {
-    background: #1f2937;
+    background: #1e293b; /* Dark background */
     padding: 1.5rem;
     margin: 1rem 0;
     border-radius: 10px;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Contact Section */
-.contact .social-links a {
-    display: inline-block;
-    margin: 0.5rem;
-    background: #22d3ee;
-    color: #1e293b;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-}
-/* Hire Me Button */
-.hire-me-btn {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 10px 20px;
-    background-color: #ff5733;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.hire-me-btn:hover {
-    background-color: #c70039;
-}
-/* Project Buttons */
-.project-links {
-    margin-top: 10px;
-}
-
-.project-links .btn {
-    display: inline-block;
-    margin: 5px;
-    padding: 10px 20px;
-    background-color: #22d3ee;
-    color: #1f2937;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.project-links .btn:hover {
-    background-color: #0ea5e9;
-}
 /* Skills Section */
 .skills {
     padding: 50px;
     text-align: center;
-    background-color: #f3f4f6;
-    color: #1f2937;
+    background-color: #334155; /* Slightly lighter background */
+    color: #ffffff;
 }
 
 .skills-container {
@@ -127,68 +142,70 @@ section {
 }
 
 .skill-card {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
+    background-color: #1e293b;
+    border: 1px solid #4b5563;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .skill-card h3 {
-    margin-bottom: 10px;
-    color: #4b5563;
+    color: #facc15;
     font-size: 1.5rem;
 }
 
-.skill-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
 .skill-card ul li {
-    margin: 5px 0;
-    font-size: 1rem;
-    color: #374151;
+    color: #e5e7eb;
 }
 
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+/* Contact Section */
+.contact .social-links a {
+    background: #1d4ed8;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
+
+.contact .social-links a:hover {
+    background-color: #2563eb;
+}
+
+/* Hire Me Button */
+.hire-me-btn {
+    padding: 10px 20px;
+    background-color: #f97316; /* Vibrant orange */
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hire-me-btn:hover {
+    background-color: #ea580c; /* Darker orange */
+}
+
 /* Achievements Section */
 .achievements {
     padding: 50px;
     text-align: center;
-    background-color: #f9fafb;
-    color: #1f2937;
-}
-
-.achievements-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+    background-color: #e5e7eb; /* Light gray */
+    color: #1e293b;
 }
 
 .achievement-card {
     background-color: #ffffff;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #d1d5db;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.achievement-card p {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #374151;
-}
-
-.achievement-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+/* Footer */
+footer {
+    padding: 2rem;
+    text-align: center;
+    background: #1e293b;
+    color: #ffffff;
+    font-size: 14px;
 }

@@ -7,8 +7,47 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
+   <!-- Navigation Bar -->
+<nav class="navbar">
+    <ul class="nav-links">
+        <li class="nav-item active">
+            <a href="#home" class="nav-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#about" class="nav-link">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#projects" class="nav-link">
+                <i class="fas fa-folder-open"></i>
+                <span>Projects</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#skills" class="nav-link">
+                <i class="fas fa-lightbulb"></i>
+                <span>Skills</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#contact" class="nav-link">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </li>
+    </ul>
+    <div class="indicator"></div>
+</nav>
+
     <!-- Hero Section -->
     <header class="hero">
         <div class="container">
@@ -189,5 +228,59 @@
             <a href="https://www.linkedin.com/in/vishal-kumar-54b2221ab/">LinkedIn</a>
         </div>
     </section>
+
+    <!-- js  -->
+   <script>
+    const navItems = document.querySelectorAll('.nav-item');
+    const indicator = document.querySelector('.indicator');
+    const sections = document.querySelectorAll('section'); // Sections corresponding to nav links
+
+    // Function to update the indicator position
+    function updateIndicator(activeItem) {
+        indicator.style.left = `${activeItem.offsetLeft}px`;
+        indicator.style.width = `${activeItem.offsetWidth}px`;
+    }
+
+    // Add click listener for navigation items
+    navItems.forEach((item, index) => {
+        item.style.setProperty('--position', index);
+        item.addEventListener('click', () => {
+            document.querySelector('.nav-item.active').classList.remove('active');
+            item.classList.add('active');
+            updateIndicator(item);
+        });
+    });
+
+    // Update the active nav item and indicator on scroll
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    const activeNavItem = document.querySelector(
+                        `.nav-item a[href="#${sectionId}"]`
+                    ).parentElement;
+
+                    document.querySelector('.nav-item.active').classList.remove('active');
+                    activeNavItem.classList.add('active');
+                    updateIndicator(activeNavItem);
+                }
+            });
+        },
+        { threshold: 0.6 } // Adjust threshold for when a section is considered in view
+    );
+
+    // Observe all sections
+    sections.forEach((section) => observer.observe(section));
+
+    // Set initial indicator position on page load
+    window.addEventListener('load', () => {
+        const activeItem = document.querySelector('.nav-item.active');
+        updateIndicator(activeItem);
+    });
+</script>
+
+    
+    
 </body>
 </html>
