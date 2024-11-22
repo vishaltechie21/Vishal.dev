@@ -185,6 +185,18 @@ h1, h2, h3 {
     background-color: #ea580c; /* Darker orange */
 }
 
+@media (max-width:360px) {
+    .hire-me-btn{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-top: 8%;
+       padding: 5px 10px;
+        text-decoration: solid;
+    }
+  
+}
+
 /* Achievements Section */
 .achievements {
     padding: 50px;
