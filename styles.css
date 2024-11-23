@@ -185,7 +185,13 @@ h1, h2, h3 {
     background-color: #ea580c; /* Darker orange */
 }
 
-@media (max-width:360px) {
+@media (max-width:400px) {
+     .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     .hire-me-btn{
        display: flex;
        justify-content: center;
